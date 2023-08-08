@@ -1,21 +1,17 @@
 class Solution 
 {
-public:
-    bool containsNearbyDuplicate(vector<int>& nums, int k) 
-    {
-        unordered_set<int> set;
+ public:
+  bool containsNearbyDuplicate(vector<int>& nums, int k) 
+  {
+    unordered_set<int> myset;
 
-        for (int i = 0; i < nums.size(); ++i) 
-        {
-           if (!set.insert(nums[i]).second)
-           {
-              return true;
-           }
-           if (i >= k)
-           {
-              set.erase(nums[i - k]);
-           }
+    for (int i = 0; i < nums.size(); ++i) {
+      if (!myset.insert(nums[i]).second)
+        return true;
+      if (i >= k)
+        myset.erase(nums[i - k]);
     }
-      return false;
-    }
+
+    return false;
+  }
 };

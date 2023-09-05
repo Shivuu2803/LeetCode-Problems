@@ -1,0 +1,28 @@
+class Solution 
+{
+public:
+    int climbStairs(int n) 
+    {
+        if(n<=3)
+        {
+            return n;
+        }
+
+        int arr[n+1];
+        arr[0]=1;
+        arr[1]=1;
+        
+        for(int i=2; i<=n; i++)
+        {
+            arr[i] = 0;
+            for(int j=1; j<=2; j++)
+            {
+                if(i - j >= 0)
+                {
+                    arr[i] += arr[i - j];
+                }
+            }
+        }
+        return arr[n];
+    }
+};
